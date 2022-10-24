@@ -25,9 +25,7 @@ export default async function setupViewer() {
   const popmotion = await viewer.addPlugin(PopmotionPlugin);
   await viewer.renderer.refreshPipeline();
 
-  const models = await manager.addFromPath(
-    "https://demo-assets.pixotronics.com/pixo/gltf/cube.glb"
-  );
+  const models = await manager.addFromPath("/cube.glb");
 
   viewer.scene.setEnvironment(
     await manager.importer!.importSingle({
