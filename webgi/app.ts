@@ -1,32 +1,9 @@
 import {
   ViewerApp,
   AssetManagerPlugin,
-  TonemapPlugin,
   addBasePlugins,
-  TweakpaneUiPlugin,
-  AssetManagerBasicPopupPlugin,
-  CanvasSnipperPlugin,
-  IViewerPlugin,
-  CameraViewPlugin,
-  PlaneGeometry,
-  MeshBasicMaterial,
-  Mesh,
-  Clock,
   PopmotionPlugin,
-  EasingFunctions,
   AssetImporter,
-  Object3DModel,
-  MeshStandardMaterial,
-  LinearEncoding,
-  GBufferPlugin,
-  ProgressivePlugin,
-  SSRPlugin,
-  SSAOPlugin,
-  FrameFadePlugin,
-  GroundPlugin,
-  BloomPlugin,
-  TemporalAAPlugin,
-  RandomizedDirectionalLightPlugin,
 } from "webgi";
 export default async function setupViewer() {
   // Initialize the viewer
@@ -43,25 +20,20 @@ export default async function setupViewer() {
   const manager = await viewer.addPlugin(AssetManagerPlugin);
   const importer = manager.importer as AssetImporter;
 
-  importer.addEventListener("onStart", (ev) => {
-    // onUpdate()
-  });
-
-  importer.addEventListener("onProgress", (ev) => {
-    const progressRatio = ev.loaded / ev.total;
-    console.log("downloaded : ", progressRatio);
-  });
-
-  importer.addEventListener("onLoad", (ev) => {
-    console.log("doneeeeeeeeeeeee");
-  });
-
   // await viewer.addPlugin(CameraViewPlugin);
 
   const popmotion = await viewer.addPlugin(PopmotionPlugin);
   await viewer.renderer.refreshPipeline();
 
-  const models = await manager.addFromPath("/scenePC.glb");
+  const models = await manager.addFromPath(
+    "https://demo-assets.pixotronics.com/pixo/gltf/cube.glb"
+  );
+
+  viewer.scene.setEnvironment(
+    await manager.importer!.importSingle({
+      path: "https://demo-assets.pixotronics.com/pixo/hdr/p360-01.hdr",
+    })
+  );
 
   // const uiPlugin = await viewer.addPlugin(TweakpaneUiPlugin);
   // uiPlugin.setupPlugins<IViewerPlugin>(

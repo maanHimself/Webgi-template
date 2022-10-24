@@ -17,13 +17,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-#webgi-canvas {
-  width: 100%;
-  height: 100%;
-}
-
-#webgi-canvas-container {
-  width: 100vw;
-  height: 100vh;
-}

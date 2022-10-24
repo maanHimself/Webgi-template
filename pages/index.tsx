@@ -1,20 +1,6 @@
-import { useEffect } from "react";
-import ThreeContainer from "./ThreeComp";
-import dynamic from "next/dynamic";
-
-//@ts-ignore
-const DynamicHeader = dynamic(() => import("../threejs/test.tsx"), {
-  ssr: false,
-});
+import useWebgi from "../components/useWebgi";
 
 export default function Home() {
-  useEffect(() => {
-    // DynamicHeader();
-  }, []);
-
-  return (
-    <>
-      <DynamicHeader />;
-    </>
-  );
+  let app = useWebgi();
+  return <>{app}</>;
 }
