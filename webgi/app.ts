@@ -29,7 +29,7 @@ export default async function setupViewer() {
 
   viewer.scene.setEnvironment(
     await manager.importer!.importSingle({
-      path: "https://demo-assets.pixotronics.com/pixo/hdr/p360-01.hdr",
+      path: "/env.hdr",
     })
   );
 
