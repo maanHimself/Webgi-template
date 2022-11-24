@@ -1,18 +1,13 @@
 import { useEffect } from "react";
-import setupViewer from "../webgi/app";
+import { setupViewer, disposeViewer } from "../webgi/app";
 
 export default function Home() {
   let dispose: () => void;
 
   useEffect(() => {
-    let setup = setupViewer();
-
-    setup.then((callback) => {
-      dispose = callback;
-    });
-
+    setupViewer();
     return () => {
-      dispose();
+      disposeViewer();
     };
   }, []);
 
