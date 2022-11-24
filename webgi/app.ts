@@ -1,10 +1,4 @@
-import {
-  ViewerApp,
-  AssetManagerPlugin,
-  addBasePlugins,
-  PopmotionPlugin,
-  AssetImporter,
-} from "webgi";
+import { ViewerApp, AssetManagerPlugin, addBasePlugins, PopmotionPlugin, AssetImporter } from "webgi";
 export default async function setupViewer() {
   // Initialize the viewer
   const viewer = new ViewerApp({
@@ -23,6 +17,7 @@ export default async function setupViewer() {
   // await viewer.addPlugin(CameraViewPlugin);
 
   const popmotion = await viewer.addPlugin(PopmotionPlugin);
+
   await viewer.renderer.refreshPipeline();
 
   const models = await manager.addFromPath("/cube.glb");
@@ -32,6 +27,13 @@ export default async function setupViewer() {
       path: "/env.hdr",
     })
   );
+
+  return function diposeViewer() {
+    viewer.scene.disposeSceneModels();
+    viewer.scene.dispose();
+    viewer.renderer.dispose();
+    viewer.dispose();
+  };
 
   // const uiPlugin = await viewer.addPlugin(TweakpaneUiPlugin);
   // uiPlugin.setupPlugins<IViewerPlugin>(
