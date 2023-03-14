@@ -8,22 +8,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.0.10",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "three": "^0.137.5"
+    "next": "^13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "17.0.18",
     "@types/react": "17.0.39",
-    "@types/three": "^0.137.0",
+    "@types/webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-types-0.7.0.tgz",
     "autoprefixer": "^10.4.2",
     "eslint": "8.9.0",
-    "eslint-config-next": "12.0.10",
+    "eslint-config-next": "^13.2.4",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.0.22",
     "typescript": "4.5.5",
-    "webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-0.6.9.tgz",
-    "@types/webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-types-0.6.9.tgz"
+    "webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-0.7.0.tgz"
   }
 }

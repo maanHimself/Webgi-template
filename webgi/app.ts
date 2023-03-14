@@ -14,11 +14,9 @@ export async function setupViewer() {
 
   await addBasePlugins(viewer);
 
-  const manager = await viewer.addPlugin(AssetManagerPlugin);
+  const manager = await viewer.getPlugin(AssetManagerPlugin)!;
 
   const importer = manager.importer as AssetImporter;
-
-  const popmotion = await viewer.addPlugin(PopmotionPlugin);
 
   await viewer.renderer.refreshPipeline();
 
